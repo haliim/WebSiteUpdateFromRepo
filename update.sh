@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cd
 sudo cp -R /var/www/halim.website/* /var/TempBackupForHalimWebsite
 cd
 sudo git clone https://git-codecommit.eu-west-1.amazonaws.com/v1/repos/Halim.Website
