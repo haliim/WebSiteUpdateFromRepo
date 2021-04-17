@@ -6,19 +6,42 @@
 #sudo cp -R /var/www/Halim.Website/* /var/www/halim.website/
 #sudo rm -r Halim.Website/
 
-do
+rm rollback.txt
+
 curl -I https://halim.website > test.txt
+if grep 'HTTP/2 200' "test.txt"; then
+    echo -e "Halim.Website is Working \e[92mSuccessfuly!\e[0m"
+elif grep 'HTTP/2 301' "test.txt"; then
+    echo -e "Halim.Website is Working \e[92mSuccessfuly!\e[0m"
+elif grep 'HTTP/1.1 200' "test.txt"; then
+    echo -e "Halim.Website is Working \e[92mSuccessfuly!\e[0m"
+elif grep 'HTTP/1.1 301' "test.txt"; then
+    echo -e "Halim.Website is Working \e[92mSuccessfuly!\e[0m"
+else
+    echo "rollback" > rollback.txt
+    echo -e "Halim.Website/blog is not Working \e[91mSuccessfuly!\e[0m"
+    echo -e "Halim.Website/blog is being \e[91mrolled back!\e[0m"
+fi
+    
+
 curl -I https://halim.website/blog > btest.txt 
 
-if grep '200' "test.txt"; then
-    echo "Halim.Website is Working \e[92mSuccessfuly!\e[0m"
-elif grep '301' "test.txt"; then
-    echo "Halim.Website is Working \e[92mSuccessfuly!\e[0m"
-elif grep '200' "test.txt"; then
-    echo "Halim.Website/blog is Working \e[92mSuccessfuly!\e[0m"
-elif grep '301' "test.txt"; then
-    echo "Halim.Website/blog is Working \e[92mSuccessfuly!\e[0m"
+if grep 'HTTP/2 200' "test.txt"; then
+    echo -e "Halim.Website/blog is Working \e[92mSuccessfuly!\e[0m"
+elif grep 'HTTP/2 301' "test.txt"; then
+    echo -e "Halim.Website/blog is Working \e[92mSuccessfuly!\e[0m"
+elif grep 'HTTP/1.1 200' "test.txt"; then
+    echo -e "Halim.Website/blog is Working \e[92mSuccessfuly!\e[0m"
+elif grep 'HTTP/1.1 301' "test.txt"; then
+    echo -e "Halim.Website/blog is Working \e[92mSuccessfuly!\e[0m"
 else
-    sudo cp -R /var/TempBackupForHalimWebsite/* /var/www/halim.website/    
-done
+    echo "rollback" > rollback.txt
+    echo -e "Halim.Website/blog is not Working \e[91mSuccessfuly!\e[0m"
+    echo -e "Halim.Website/blog is being \e[91mrolled back!\e[0m"
+fi
+
+if grep 'rollback' "rollback.txt"; then
+####echo "rollback success"
+    sudo cp -R /var/TempBackupForHalimWebsite/* /var/www/halim.website/
+fi
 
