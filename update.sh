@@ -5,10 +5,11 @@ cd /var/www/
 sudo git clone https://git-codecommit.eu-west-1.amazonaws.com/v1/repos/Halim.Website
 sudo cp -R /var/www/Halim.Website/* /var/www/halim.website/
 sudo rm -r Halim.Website/
-
-rm rollback.txt
-
+cd
+cd WebsiteUpdateFromRepo/
+sudo rm rollback.txt
 sudo curl -I https://halim.website > test.txt
+
 if grep 'HTTP/2 200' "test.txt"; then
     echo -e "Halim.Website is Working \e[92mSuccessfuly!\e[0m"
 elif grep 'HTTP/2 301' "test.txt"; then

@@ -1,13 +1,12 @@
-HTTP/1.1 200 OK
-Server: nginx/1.18.0 (Ubuntu)
-Date: Sat, 17 Apr 2021 02:19:38 GMT
-Content-Type: text/html
-Content-Length: 36013
-Last-Modified: Wed, 17 Mar 2021 04:30:33 GMT
-Connection: keep-alive
-ETag: "605185e9-8cad"
-Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
-X-Frame-Options: SAMEORIGIN
-X-Content-Type-Options: nosniff
-Accept-Ranges: bytes
+HTTP/2 200 
+server: nginx/1.18.0 (Ubuntu)
+date: Sat, 17 Apr 2021 02:54:34 GMT
+content-type: text/html
+content-length: 36025
+last-modified: Sat, 17 Apr 2021 02:52:11 GMT
+etag: "607a4d5b-8cb9"
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-frame-options: SAMEORIGIN
+x-content-type-options: nosniff
+accept-ranges: bytes
 
