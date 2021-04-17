@@ -2,12 +2,10 @@
 
 cd
 sudo cp -R /var/www/halim.website/* /var/TempBackupForHalimWebsite
-cd
-sudo git clone https://git-codecommit.eu-west-1.amazonaws.com/v1/repos/Halim.Website
-sudo cp -R /Halim.Website/* /var/www/halim.website/
-cd
+git clone https://git-codecommit.eu-west-1.amazonaws.com/v1/repos/Halim.Website
+sudo cp -R Halim.Website/* /var/www/halim.website/
 sudo rm -r Halim.Website/
-cd WebsiteUpdateFromRepo/
+cd WebSiteUpdateFromRepo/
 sudo rm rollback.txt
 sudo curl -I https://halim.website > test.txt
 
